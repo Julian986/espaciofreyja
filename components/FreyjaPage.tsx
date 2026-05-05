@@ -1,13 +1,33 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, type FormEvent } from "react";
+import Link from "next/link";
+import { useState, useEffect, useLayoutEffect, type FormEvent } from "react";
+
+const HOME_SCROLL_RESTORE_KEY = "espaciofreyja-home-scroll-y";
+
+function saveHomeScrollPosition() {
+  sessionStorage.setItem(HOME_SCROLL_RESTORE_KEY, String(window.scrollY));
+}
 
 type Toast = { id: number; type: "success" | "error"; message: string };
 
 export default function FreyjaPage() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [toasts, setToasts] = useState<Toast[]>([]);
+
+  useLayoutEffect(() => {
+    const raw = sessionStorage.getItem(HOME_SCROLL_RESTORE_KEY);
+    if (raw == null) return;
+    sessionStorage.removeItem(HOME_SCROLL_RESTORE_KEY);
+    const y = Number.parseInt(raw, 10);
+    if (!Number.isFinite(y) || y < 0) return;
+    const apply = () => window.scrollTo({ top: y, left: 0, behavior: "auto" });
+    requestAnimationFrame(() => {
+      apply();
+      requestAnimationFrame(apply);
+    });
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -317,7 +337,27 @@ export default function FreyjaPage() {
         </div>
 
         <section id="agenda" style={{ padding: "80px 8%", maxWidth: 1300, margin: "auto" }}>
-          <h2 className="serif serif-heading" style={{ textAlign: "center", fontSize: "2.2rem", marginBottom: 40 }}>Reserva tu Turno</h2>
+          <h2 className="serif serif-heading" style={{ textAlign: "center", fontSize: "2.2rem", marginBottom: 16 }}>Reserva tu Turno</h2>
+          <div style={{ textAlign: "center", marginBottom: 28 }}>
+            <Link
+              href="/reservar"
+              onClick={saveHomeScrollPosition}
+              style={{
+                display: "inline-block",
+                padding: "10px 22px",
+                background: "#333",
+                color: "#D6BA8A",
+                border: "1px solid #D6BA8A",
+                textDecoration: "none",
+                fontSize: "0.8rem",
+                fontWeight: 700,
+                letterSpacing: 1,
+                textTransform: "uppercase",
+              }}
+            >
+              Reservar turno
+            </Link>
+          </div>
           <div className="card-top" style={{
             maxWidth: 500,
             margin: "auto",
@@ -349,6 +389,26 @@ export default function FreyjaPage() {
 
         <div style={{ backgroundColor: "#F3F1ED", width: "100%" }} id="contacto">
           <section style={{ padding: "80px 8%", maxWidth: 1300, margin: "auto" }}>
+            <div style={{ textAlign: "center", marginBottom: 28 }}>
+              <Link
+                href="/productos"
+                onClick={saveHomeScrollPosition}
+                style={{
+                  display: "inline-block",
+                  padding: "10px 22px",
+                  background: "#fff",
+                  color: "#333",
+                  border: "1px solid rgba(214,186,138,0.5)",
+                  textDecoration: "none",
+                  fontSize: "0.8rem",
+                  fontWeight: 700,
+                  letterSpacing: 1,
+                  textTransform: "uppercase",
+                }}
+              >
+                Ver productos
+              </Link>
+            </div>
             <div style={{ display: "flex", gap: 50, flexWrap: "wrap" }}>
               <div className="card-top" style={{
                 flex: 1,
