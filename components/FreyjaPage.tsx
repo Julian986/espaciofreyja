@@ -84,6 +84,13 @@ export default function FreyjaPage() {
           text-rendering: optimizeLegibility;
         }
 
+        .font-baskerville-old-face {
+          font-family: 'Baskerville Old Face', serif;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          text-rendering: optimizeLegibility;
+        }
+
         /* Títulos: peso visible; font-synthesis permite negrita sintética solo aquí (IM Fell solo trae 400). */
         .serif-heading {
           font-weight: 700;
@@ -258,7 +265,7 @@ export default function FreyjaPage() {
           top: 0,
           zIndex: 1000,
         }}>
-          <a href="#" className="serif" style={{ fontSize: "1.5rem", textDecoration: "none", color: "inherit", letterSpacing: 2 }}>
+          <a href="#" className="font-baskerville-old-face" style={{ fontSize: "1.5rem", textDecoration: "none", color: "inherit", letterSpacing: 2 }}>
             FREYJA
           </a>
           <div style={{ display: "flex", gap: 0 }}>
@@ -293,7 +300,7 @@ export default function FreyjaPage() {
         <section id="filosofia" style={{ padding: "80px 8%", maxWidth: 1300, margin: "auto" }}>
           <div style={{ display: "flex", gap: 50, flexWrap: "wrap", alignItems: "center" }}>
             <div style={{ flex: 1, minWidth: 300 }}>
-              <h2 className="serif serif-heading" style={{ fontSize: "2.5rem", color: "#D6BA8A", marginTop: 0 }}>
+              <h2 className="font-baskerville-old-face serif-heading" style={{ fontSize: "2.5rem", color: "#D6BA8A", marginTop: 0 }}>
                 Nuestra Filosofía
               </h2>
               <p>
@@ -325,7 +332,7 @@ export default function FreyjaPage() {
           <section style={{ padding: "80px 8%", maxWidth: 1300, margin: "auto" }}>
             <div style={{ display: "flex", gap: 50, flexWrap: "wrap" }}>
               <div style={{ flex: "0 0 300px" }}>
-                <h3 className="serif serif-heading" style={{ fontSize: "3rem", margin: 0 }}>Carla Bruni</h3>
+                <h3 className="font-baskerville-old-face serif-heading" style={{ fontSize: "3rem", margin: 0 }}>Carla Bruni</h3>
                 <span style={{ color: "#D6BA8A", letterSpacing: 2, fontSize: "0.9rem" }}>Dermocosmiatra & Esteticista</span>
               </div>
               <div style={{ flex: 1, borderLeft: "2px solid #D6BA8A", paddingLeft: 40 }}>
@@ -337,7 +344,7 @@ export default function FreyjaPage() {
         </div>
 
         <section id="agenda" style={{ padding: "80px 8%", maxWidth: 1300, margin: "auto" }}>
-          <h2 className="serif serif-heading" style={{ textAlign: "center", fontSize: "2.2rem", marginBottom: 16 }}>Reserva tu Turno</h2>
+          <h2 className="font-baskerville-old-face serif-heading" style={{ textAlign: "center", fontSize: "2.2rem", marginBottom: 16 }}>Reserva tu Turno</h2>
           <div style={{ textAlign: "center", marginBottom: 28 }}>
             <Link
               href="/reservar"
