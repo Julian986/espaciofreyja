@@ -307,7 +307,7 @@ export default function FreyjaPage() {
                 En <strong>Espacio Freyja</strong> cuidamos la piel desde el conocimiento, no desde la moda. Somos un skin bar especializado en análisis facial y acompañamiento consciente.
               </p>
               <div style={{ padding: 30, border: "1px solid #D6BA8A", textAlign: "center", margin: "30px 0" }}>
-                <blockquote className="serif" style={{ fontSize: "1.3rem", margin: 0, color: "#D6BA8A" }}>
+                <blockquote className="font-baskerville-old-face" style={{ fontSize: "1.3rem", margin: 0, color: "#D6BA8A" }}>
                   &quot;No tratamos pieles por tendencia. Las tratamos por necesidad real&quot;
                 </blockquote>
               </div>
